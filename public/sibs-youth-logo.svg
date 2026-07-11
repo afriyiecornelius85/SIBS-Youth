@@ -1,0 +1,11 @@
+<svg width="560" height="220" viewBox="0 0 560 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="22" y="28" width="164" height="164" rx="28" fill="#17211D"/>
+  <path d="M62 66H146V87H114V158H93V87H62V66Z" fill="#F0B84B"/>
+  <path d="M62 144C82 144 93 131 104 109C116 131 127 144 146 144V166C118 166 102 152 91 129C84 141 75 153 62 158V144Z" fill="#0D7C66"/>
+  <circle cx="148" cy="67" r="14" fill="#ED6A4D"/>
+  <path d="M62 66H146" stroke="#FBFAF4" stroke-width="6" stroke-linecap="round"/>
+  <text x="218" y="99" fill="#17211D" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="900">SIBS</text>
+  <text x="220" y="154" fill="#0D7C66" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="900">YOUTH</text>
+  <path d="M223 174H409" stroke="#F0B84B" stroke-width="10" stroke-linecap="round"/>
+  <path d="M430 174H493" stroke="#ED6A4D" stroke-width="10" stroke-linecap="round"/>
+</svg>
