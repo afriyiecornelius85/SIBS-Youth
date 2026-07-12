@@ -1,0 +1,19 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SIBS YOUTH emblem">
+  <circle cx="100" cy="100" r="97" fill="#1c2530" />
+  <circle cx="100" cy="100" r="97" fill="none" stroke="#f0b84b" stroke-width="5" />
+  <text
+    x="100"
+    y="102"
+    font-family="Georgia, 'Playfair Display', serif"
+    font-weight="700"
+    font-size="68"
+    text-anchor="middle"
+    fill="#ffffff"
+  >SY</text>
+  <g>
+    <rect x="62" y="158" width="14" height="16" rx="2" fill="#298fb7" />
+    <rect x="82" y="150" width="14" height="24" rx="2" fill="#f0b84b" />
+    <rect x="102" y="141" width="14" height="33" rx="2" fill="#e8622a" />
+    <rect x="122" y="132" width="14" height="42" rx="2" fill="#c81c78" />
+  </g>
+</svg>

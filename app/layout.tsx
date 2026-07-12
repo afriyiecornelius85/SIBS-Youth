@@ -6,7 +6,7 @@ import "./globals.css";
 
 const title = "SIBS YOUTH";
 const description =
-  "The youth movement under SIBS International for leadership, service, creativity, and digital readiness.";
+  "SIBS YOUTH is the SIBS International subsidiary preparing young people for future careers through leadership, digital skills, a football academy, and the Cape Coast, Ghana commerce & entrepreneurship initiative.";
 
 export async function generateMetadata(): Promise<Metadata> {
   const origin = await getSiteOrigin();
@@ -16,8 +16,8 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { default: title, template: "%s · SIBS YOUTH" },
     description,
     icons: {
-      icon: "/sibs-youth-mark.png",
-      shortcut: "/sibs-youth-mark.png",
+      icon: "/sibs-youth-emblem.svg",
+      shortcut: "/sibs-youth-emblem.svg",
     },
     openGraph: {
       title,

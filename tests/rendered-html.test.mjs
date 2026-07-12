@@ -24,6 +24,8 @@ test("server-renders the SIBS YOUTH landing page", async () => {
   assert.match(html, /A SIBS International youth movement/);
   assert.match(html, /Explore Programs/);
   assert.match(html, /Leadership Labs/);
+  assert.match(html, /Football Academy/);
+  assert.match(html, /Cape Coast/);
   assert.match(html, /Learn\. Lead\. Serve\. Build\./);
   assert.match(html, /og:image/);
   assert.doesNotMatch(html, /react-loading-skeleton|SkeletonPreview/);
@@ -34,7 +36,7 @@ test("ships branded assets and removes the starter skeleton", async () => {
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
     readFile(new URL("../package.json", import.meta.url), "utf8"),
-    access(new URL("../public/sibs-youth-mark.png", import.meta.url)),
+    access(new URL("../public/sibs-youth-emblem.svg", import.meta.url)),
     access(new URL("../public/og.png", import.meta.url)),
   ]);
 

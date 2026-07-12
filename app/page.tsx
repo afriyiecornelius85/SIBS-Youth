@@ -1,23 +1,21 @@
 import Link from "next/link";
 import HeroSlideshow from "./components/HeroSlideshow";
 
-const values = ["Character", "Opportunity", "Service", "Innovation"];
-
 const programTeasers = [
   {
-    title: "Leadership Labs",
+    title: "Football Academy",
     summary:
-      "Practical sessions that help young people build confidence, communication, planning, and responsibility.",
+      "A youth football academy where promising players train, compete, and get scouted for what comes next.",
+  },
+  {
+    title: "Cape Coast Commerce & Entrepreneurship",
+    summary:
+      "Opening up Cape Coast, Ghana to more opportunity in commerce and entrepreneurship for young people.",
   },
   {
     title: "Digital Skills",
     summary:
       "Hands-on learning for technology, media, design, and the tools young leaders need in a changing world.",
-  },
-  {
-    title: "Service Projects",
-    summary:
-      "Community action days where youth teams identify needs, organize volunteers, and deliver measurable help.",
   },
 ];
 
@@ -32,28 +30,7 @@ export default function Home() {
   return (
     <main>
       <section className="hero" id="home">
-        <div className="hero-grid">
-          <div className="hero-copy">
-            <HeroSlideshow />
-            <div className="hero-actions" aria-label="SIBS YOUTH quick links">
-              <Link className="button primary" href="/programs">
-                Explore Programs
-              </Link>
-              <Link className="button secondary" href="/contact">
-                Partner With Us
-              </Link>
-            </div>
-          </div>
-
-          <div className="brand-stage" aria-label="SIBS YOUTH brand mark">
-            <img className="stage-logo" src="/sibs-youth-mark.png" alt="SIBS YOUTH logo" />
-            <div className="orbit">
-              {values.map((value) => (
-                <span key={value}>{value}</span>
-              ))}
-            </div>
-          </div>
-        </div>
+        <HeroSlideshow />
       </section>
 
       <section className="mission-band">
@@ -62,9 +39,10 @@ export default function Home() {
           <h2>Youth with purpose, skill, and a place to belong.</h2>
           <div>
             <p>
-              SIBS YOUTH exists to give young people a strong platform for personal growth,
-              leadership formation, service, creativity, and digital readiness while staying
-              connected to the wider SIBS International family.
+              SIBS YOUTH is a subsidiary of SIBS International, preparing young people for future
+              careers through leadership, digital skills, a football academy, and community
+              projects &mdash; including the drive to open up Cape Coast, Ghana to more
+              opportunity in commerce and entrepreneurship.
             </p>
             <Link className="button secondary" href="/about">
               Read Our Story
@@ -99,8 +77,10 @@ export default function Home() {
           <p className="section-kicker">Impact Model</p>
           <h2>Learn. Lead. Serve. Build.</h2>
           <p>
-            The first version of the SIBS YOUTH platform gives the organization a clear identity
-            for recruiting, partnerships, events, and digital storytelling.
+            From the training pitch to the marketplace, SIBS YOUTH gives young people real
+            responsibility &mdash; whether that&apos;s a spot on the football academy roster, a
+            stake in Cape Coast&apos;s growing commerce scene, or a leadership role in their own
+            community.
           </p>
         </div>
         <div className="metric-grid" aria-label="SIBS YOUTH impact highlights">
