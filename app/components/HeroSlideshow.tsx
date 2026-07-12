@@ -1,11 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 type Slide = {
   eyebrow: string;
   heading: string;
   lede: string;
+  image: string;
+  imageAlt: string;
 };
 
 const slides: Slide[] = [
@@ -13,21 +16,36 @@ const slides: Slide[] = [
     eyebrow: "A SIBS International youth movement",
     heading: "SIBS YOUTH",
     lede: "Preparing young people to lead with character, serve with courage, build useful skills, and create positive change in their communities.",
+    image: "/hero-intro.jpg",
+    imageAlt: "Group of African students standing together outdoors",
   },
   {
     eyebrow: "Leadership Labs",
     heading: "Lead With Character",
     lede: "Practical sessions that build confidence, communication, planning, and real responsibility.",
+    image: "/leadership-labs.jpg",
+    imageAlt: "Young man speaking into a microphone at a leadership session",
   },
   {
-    eyebrow: "Service Projects",
-    heading: "Serve With Courage",
-    lede: "Community action days where youth teams identify needs and deliver measurable help.",
+    eyebrow: "Football Academy",
+    heading: "Showcase Your Talent",
+    lede: "A youth football academy where promising players train, compete, and get seen.",
+    image: "/football-academy.jpg",
+    imageAlt: "Youth football players training on a dirt pitch",
+  },
+  {
+    eyebrow: "Cape Coast, Ghana",
+    heading: "Opening Doors to Opportunity",
+    lede: "A commerce and entrepreneurship initiative helping Cape Coast's youth build businesses and futures.",
+    image: "/cape-coast.jpg",
+    imageAlt: "Scenic view over Cape Coast, Ghana",
   },
   {
     eyebrow: "Digital Skills",
     heading: "Build Useful Skills",
     lede: "Hands-on learning in technology, media, and design for a changing world.",
+    image: "/digital-skills.jpg",
+    imageAlt: "Young professional working on a laptop in a training room",
   },
 ];
 
@@ -54,31 +72,54 @@ export default function HeroSlideshow() {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="hero-slide-viewport" aria-live="off">
+      <div className="hero-slide-photos" aria-hidden="true">
         {slides.map((slide, index) => (
           <div
-            className={index === activeIndex ? "hero-slide active" : "hero-slide"}
-            key={slide.heading}
-            aria-hidden={index !== activeIndex}
+            className={index === activeIndex ? "hero-slide-photo active" : "hero-slide-photo"}
+            key={slide.image}
           >
-            <p className="eyebrow">{slide.eyebrow}</p>
-            <h1>{slide.heading}</h1>
-            <p className="hero-lede">{slide.lede}</p>
+            <img src={slide.image} alt="" />
           </div>
         ))}
       </div>
+      <div className="hero-slide-scrim" aria-hidden="true" />
 
-      <div className="hero-dots" role="group" aria-label="Choose a headline to show">
-        {slides.map((slide, index) => (
-          <button
-            key={slide.heading}
-            type="button"
-            className={index === activeIndex ? "hero-dot active" : "hero-dot"}
-            aria-label={`Show headline ${index + 1} of ${slides.length}: ${slide.heading}`}
-            aria-current={index === activeIndex}
-            onClick={() => setActiveIndex(index)}
-          />
-        ))}
+      <div className="hero-overlay">
+        <div className="hero-slide-viewport" aria-live="off">
+          {slides.map((slide, index) => (
+            <div
+              className={index === activeIndex ? "hero-slide active" : "hero-slide"}
+              key={slide.heading}
+              aria-hidden={index !== activeIndex}
+            >
+              <p className="eyebrow">{slide.eyebrow}</p>
+              <h1>{slide.heading}</h1>
+              <p className="hero-lede">{slide.lede}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="hero-actions" aria-label="SIBS YOUTH quick links">
+          <Link className="button primary" href="/programs">
+            Explore Programs
+          </Link>
+          <Link className="button secondary" href="/contact">
+            Partner With Us
+          </Link>
+        </div>
+
+        <div className="hero-dots" role="group" aria-label="Choose a headline to show">
+          {slides.map((slide, index) => (
+            <button
+              key={slide.heading}
+              type="button"
+              className={index === activeIndex ? "hero-dot active" : "hero-dot"}
+              aria-label={`Show headline ${index + 1} of ${slides.length}: ${slide.heading}`}
+              aria-current={index === activeIndex}
+              onClick={() => setActiveIndex(index)}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

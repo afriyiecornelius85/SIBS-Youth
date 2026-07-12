@@ -17,15 +17,16 @@ export default function SiteFooter() {
       <div className="footer-grid">
         <div className="footer-brand">
           <Link className="brand" href="/" aria-label="SIBS YOUTH home">
-            <img src="/sibs-youth-mark.png" alt="" aria-hidden="true" />
+            <img src="/sibs-youth-emblem.svg" alt="" aria-hidden="true" />
             <span>
               <strong>SIBS</strong>
               <small>YOUTH</small>
             </span>
           </Link>
           <p>
-            Preparing young people to lead with character, serve with courage, build useful
-            skills, and create positive change in their communities.
+            A subsidiary of SIBS International preparing young people for future careers through
+            leadership, digital skills, a football academy, and the Cape Coast, Ghana
+            commerce &amp; entrepreneurship initiative.
           </p>
         </div>
 

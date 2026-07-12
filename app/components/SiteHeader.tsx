@@ -31,7 +31,7 @@ export default function SiteHeader() {
     <header className="site-header" aria-label="Primary navigation">
       <div className="site-header-bar">
         <Link className="brand" href="/" aria-label="SIBS YOUTH home">
-          <img src="/sibs-youth-mark.png" alt="" aria-hidden="true" />
+          <img src="/sibs-youth-emblem.svg" alt="" aria-hidden="true" />
           <span>
             <strong>SIBS</strong>
             <small>YOUTH</small>

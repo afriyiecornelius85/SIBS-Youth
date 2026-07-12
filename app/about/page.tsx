@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import ImagePlaceholder from "../components/ImagePlaceholder";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "The mission, values, and story behind SIBS YOUTH, the youth movement under SIBS International.",
+    "SIBS YOUTH is the SIBS International subsidiary preparing young people for future careers through leadership, a football academy, and the Cape Coast, Ghana commerce and entrepreneurship initiative.",
 };
 
 const values = [
@@ -38,9 +37,9 @@ export default function AboutPage() {
         <p className="section-kicker">About</p>
         <h1>Youth with purpose, skill, and a place to belong.</h1>
         <p className="hero-lede">
-          SIBS YOUTH exists to give young people a strong platform for personal growth, leadership
-          formation, service, creativity, and digital readiness while staying connected to the
-          wider SIBS International family.
+          SIBS YOUTH is a subsidiary of SIBS International, preparing young people for future
+          careers through leadership, service, digital readiness, and hands-on programs like the
+          football academy and the Cape Coast, Ghana commerce and entrepreneurship initiative.
         </p>
       </section>
 
@@ -64,22 +63,27 @@ export default function AboutPage() {
           <p className="section-kicker">Our Story</p>
           <h2>Part of the SIBS International family.</h2>
           <p>
-            SIBS YOUTH is the youth movement under SIBS International, built to give the next
-            generation a dedicated home for leadership formation, service, creativity, and digital
-            readiness. Every program, mentorship circle, and event ties back to the same mission:
-            preparing young people to lead with character and create positive change in their own
-            communities.
+            SIBS YOUTH is the youth-focused subsidiary of SIBS International, built to prepare the
+            next generation for future careers and give them a dedicated home for leadership
+            formation, service, and digital readiness. The movement also undertakes projects on
+            behalf of SIBS International, including a youth football academy where players with
+            talent train and get seen, and the drive to open up Cape Coast, Ghana to more
+            opportunity in commerce and entrepreneurship.
           </p>
           <p>
-            This platform is the starting point for that work &mdash; a clear identity for
-            recruiting members, introducing chapters, welcoming mentors, and promoting events as
-            the movement grows.
+            Every program, mentorship circle, and project ties back to the same mission: preparing
+            young people to lead with character and build real opportunity in their own
+            communities.
           </p>
           <Link className="button primary" href="/programs">
             See Our Programs
           </Link>
         </div>
-        <ImagePlaceholder label="SIBS YOUTH team photo" aspect="square" />
+        <img
+          className="story-photo"
+          src="/cape-coast.jpg"
+          alt="Scenic view over Cape Coast, Ghana"
+        />
       </section>
 
       <section className="connect">
