@@ -32,23 +32,15 @@ to run it.
    binds to `0.0.0.0:$PORT`, so no extra config is needed.
 3. The health check path is `/`.
 
-`npm run build && npm run start` is a plain Node.js server with no
-Cloudflare-specific dependency, so it runs the same way locally as it will
-on Render — useful for a final check before deploying.
-
-The repo also still has `wrangler.jsonc` and `worker/index.ts` from an
-earlier Cloudflare Workers deploy path; they're unused by the Render
-deployment and only matter if you ever deploy there instead.
+`npm run build && npm run start` is a plain Node.js server, so it runs the
+same way locally as it will on Render — useful for a final check before
+deploying.
 
 ## Included Shape
 
 - edit site code under `app/`
 - `app/robots.ts` / `app/sitemap.ts` generate `robots.txt` and `sitemap.xml` from the current deploy origin
 - `app/not-found.tsx` is the branded 404 page
-- `db/schema.ts` starts intentionally empty; declare a `d1_databases` binding
-  named `DB` in `wrangler.jsonc` to use it
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
 
 ## Useful Commands
 
@@ -57,9 +49,7 @@ deployment and only matter if you ever deploy there instead.
 - `npm run lint`: run ESLint
 - `npm run typecheck`: run `tsc --noEmit`
 - `npm test`: build the site and verify the rendered HTML for each route
-- `npm run db:generate`: generate Drizzle migrations after schema changes
 
 ## Learn More
 
 - [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
