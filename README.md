@@ -1,8 +1,9 @@
-# vinext-starter
+# SIBS YOUTH
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+Marketing site for SIBS YOUTH, the youth movement under SIBS International.
+Built on [vinext](https://github.com/cloudflare/vinext) (Next.js App Router
+running on Vite) and deployed to Cloudflare Workers, with optional Cloudflare
+D1 and Drizzle support.
 
 ## Prerequisites
 
@@ -16,11 +17,15 @@ npm run dev
 npm run build
 ```
 
-This starter does not use `wrangler.jsonc`.
+Deploys run through `wrangler.jsonc` — see
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) for the CI/CD
+pipeline that lints, typechecks, tests, and deploys on every push to `main`.
 
 ## Included Shape
 
 - edit site code under `app/`
+- `app/robots.ts` / `app/sitemap.ts` generate `robots.txt` and `sitemap.xml` from the current deploy origin
+- `app/not-found.tsx` is the branded 404 page
 - `.openai/hosting.json` declares optional Sites D1 and R2 bindings
 - `vite.config.ts` simulates declared bindings for local development
 - `db/schema.ts` starts intentionally empty
@@ -88,8 +93,10 @@ actions tied to the current ChatGPT user. Leave public content anonymous.
 ## Useful Commands
 
 - `npm run dev`: start local development
-- `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
+- `npm run build`: produce the vinext build output
+- `npm run lint`: run ESLint
+- `npm run typecheck`: run `tsc --noEmit`
+- `npm test`: build the site and verify the rendered HTML for each route
 - `npm run db:generate`: generate Drizzle migrations after schema changes
 
 ## Learn More
