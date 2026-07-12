@@ -54,6 +54,8 @@ const secondaryRoutes = [
   { path: "/about", title: "About" },
   { path: "/programs", title: "Programs" },
   { path: "/events", title: "Events" },
+  { path: "/team", title: "Team" },
+  { path: "/news", title: "News" },
   { path: "/contact", title: "Contact" },
 ];
 
@@ -68,6 +70,8 @@ for (const route of secondaryRoutes) {
     assert.match(html, /href="\/about"/);
     assert.match(html, /href="\/programs"/);
     assert.match(html, /href="\/events"/);
+    assert.match(html, /href="\/team"/);
+    assert.match(html, /href="\/news"/);
     assert.match(html, /href="\/contact"/);
   });
 }

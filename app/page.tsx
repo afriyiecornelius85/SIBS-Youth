@@ -1,4 +1,5 @@
 import Link from "next/link";
+import HeroSlideshow from "./components/HeroSlideshow";
 
 const values = ["Character", "Opportunity", "Service", "Innovation"];
 
@@ -33,12 +34,7 @@ export default function Home() {
       <section className="hero" id="home">
         <div className="hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow">A SIBS International youth movement</p>
-            <h1>SIBS YOUTH</h1>
-            <p className="hero-lede">
-              Preparing young people to lead with character, serve with courage, build useful
-              skills, and create positive change in their communities.
-            </p>
+            <HeroSlideshow />
             <div className="hero-actions" aria-label="SIBS YOUTH quick links">
               <Link className="button primary" href="/programs">
                 Explore Programs

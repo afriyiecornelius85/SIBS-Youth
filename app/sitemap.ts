@@ -5,6 +5,8 @@ const routes = [
   { path: "/about", priority: 0.8 },
   { path: "/programs", priority: 0.8 },
   { path: "/events", priority: 0.6 },
+  { path: "/team", priority: 0.6 },
+  { path: "/news", priority: 0.6 },
   { path: "/contact", priority: 0.6 },
 ];
 
