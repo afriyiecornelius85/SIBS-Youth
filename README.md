@@ -2,8 +2,8 @@
 
 Marketing site for SIBS YOUTH, the youth movement under SIBS International.
 Built on [vinext](https://github.com/cloudflare/vinext) (Next.js App Router
-running on Vite) and deployed to Cloudflare Workers, with optional Cloudflare
-D1 and Drizzle support.
+running on Vite), deployed to [Render](https://render.com) as a standard
+Node.js web service.
 
 ## Prerequisites
 
@@ -17,9 +17,28 @@ npm run dev
 npm run build
 ```
 
-Deploys run through `wrangler.jsonc` — see
-[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) for the CI/CD
-pipeline that lints, typechecks, tests, and deploys on every push to `main`.
+## Deploying to Render
+
+`render.yaml` at the repo root is a Render
+[Blueprint](https://render.com/docs/infrastructure-as-code) that defines the
+service: Node runtime, `npm ci && npm run build` to build, `npm run start`
+to run it.
+
+1. In the Render dashboard, choose **New > Blueprint** and point it at this
+   repo (or **New > Web Service** and fill in the same build/start commands
+   manually if you'd rather not use the blueprint).
+2. Render reads the Node version from `.node-version` (currently `22`) and
+   sets `PORT` itself — `npm run start` runs `vinext start`, which already
+   binds to `0.0.0.0:$PORT`, so no extra config is needed.
+3. The health check path is `/`.
+
+`npm run build && npm run start` is a plain Node.js server with no
+Cloudflare-specific dependency, so it runs the same way locally as it will
+on Render — useful for a final check before deploying.
+
+The repo also still has `wrangler.jsonc` and `worker/index.ts` from an
+earlier Cloudflare Workers deploy path; they're unused by the Render
+deployment and only matter if you ever deploy there instead.
 
 ## Included Shape
 
