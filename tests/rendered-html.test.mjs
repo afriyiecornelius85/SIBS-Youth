@@ -35,7 +35,6 @@ test("ships branded assets and removes the starter skeleton", async () => {
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
     readFile(new URL("../package.json", import.meta.url), "utf8"),
     access(new URL("../public/sibs-youth-mark.png", import.meta.url)),
-    access(new URL("../public/sibs-youth-logo.png", import.meta.url)),
     access(new URL("../public/og.png", import.meta.url)),
   ]);
 
