@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import SiteHeader from "./components/SiteHeader";
 import SiteFooter from "./components/SiteFooter";
+import { getSiteOrigin } from "./lib/site-origin";
 import "./globals.css";
 
 const title = "SIBS YOUTH";
@@ -9,11 +9,7 @@ const description =
   "The youth movement under SIBS International for leadership, service, creativity, and digital readiness.";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const headerList = await headers();
-  const host = headerList.get("x-forwarded-host") ?? headerList.get("host") ?? "localhost:3000";
-  const protocol =
-    headerList.get("x-forwarded-proto") ?? (host.includes("localhost") ? "http" : "https");
-  const origin = `${protocol}://${host}`;
+  const origin = await getSiteOrigin();
 
   return {
     metadataBase: new URL(origin),
@@ -55,6 +51,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&display=swap"
+        />
         <SiteHeader />
         {children}
         <SiteFooter />
