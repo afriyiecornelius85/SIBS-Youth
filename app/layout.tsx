@@ -16,8 +16,8 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { default: title, template: "%s · SIBS YOUTH" },
     description,
     icons: {
-      icon: "/sibs-youth-emblem.svg",
-      shortcut: "/sibs-youth-emblem.svg",
+      icon: "/sibs-youth-mark.png",
+      shortcut: "/sibs-youth-mark.png",
     },
     openGraph: {
       title,
