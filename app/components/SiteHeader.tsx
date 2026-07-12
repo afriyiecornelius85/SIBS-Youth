@@ -9,6 +9,9 @@ const navLinks = [
   { href: "/about", label: "About" },
   { href: "/programs", label: "Programs" },
   { href: "/events", label: "Events" },
+  { href: "/team", label: "Team" },
+  { href: "/news", label: "News" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function SiteHeader() {

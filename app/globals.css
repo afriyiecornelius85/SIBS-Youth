@@ -259,7 +259,7 @@ h3 {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.75fr);
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.85fr);
   align-items: center;
   gap: clamp(34px, 6vw, 86px);
   max-width: 1180px;
@@ -294,17 +294,71 @@ h2 {
   margin-top: 32px;
 }
 
+/* ---------- Hero slideshow ---------- */
+
+.hero-slideshow {
+  position: relative;
+}
+
+.hero-slide-viewport {
+  position: relative;
+  min-height: clamp(220px, 32vw, 300px);
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+}
+
+.hero-slide.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+}
+
+.hero-dots {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.hero-dot {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-dot:hover,
+.hero-dot:focus-visible {
+  border-color: var(--blue);
+}
+
+.hero-dot.active {
+  border-color: var(--blue);
+  background: var(--blue);
+  transform: scale(1.2);
+}
+
 .brand-stage {
   position: relative;
   display: grid;
-  min-height: 470px;
+  min-height: 540px;
   place-items: center;
+  padding: 0 20px;
 }
 
 .stage-logo {
   position: relative;
   z-index: 2;
-  width: min(100%, 430px);
+  width: min(100%, 480px);
   filter: drop-shadow(0 28px 50px rgba(23, 33, 29, 0.16));
 }
 
@@ -316,7 +370,7 @@ h2 {
 }
 
 .orbit::before {
-  width: min(92%, 440px);
+  width: min(74%, 400px);
   aspect-ratio: 1;
   border: 2px dashed rgba(41, 143, 183, 0.36);
   border-radius: 50%;
@@ -335,26 +389,26 @@ h2 {
 }
 
 .orbit span:nth-child(1) {
-  top: 6%;
-  left: 42%;
+  top: 0;
+  left: 4%;
   background: #e3f1f7;
 }
 
 .orbit span:nth-child(2) {
-  right: 2%;
-  top: 45%;
+  top: 0;
+  right: 4%;
   background: #fff2cf;
 }
 
 .orbit span:nth-child(3) {
-  bottom: 8%;
-  left: 34%;
+  bottom: 0;
+  right: 0;
   background: #ffe4db;
 }
 
 .orbit span:nth-child(4) {
+  bottom: 0;
   left: 0;
-  top: 43%;
   background: #fbe4ef;
 }
 
@@ -395,6 +449,14 @@ h2 {
 
 .contact-hero {
   background: linear-gradient(120deg, rgba(200, 28, 120, 0.08), transparent 45%), var(--paper);
+}
+
+.team-hero {
+  background: linear-gradient(120deg, rgba(21, 95, 120, 0.1), transparent 45%), var(--paper);
+}
+
+.news-hero {
+  background: linear-gradient(120deg, rgba(28, 37, 48, 0.08), transparent 45%), var(--paper);
 }
 
 /* ---------- Mission ---------- */
@@ -915,6 +977,7 @@ h2 {
   margin: 20px auto 0;
   color: rgba(255, 255, 255, 0.5);
   font-size: 0.85rem;
+  text-align: center;
 }
 
 /* ---------- Responsive ---------- */
@@ -945,7 +1008,7 @@ h2 {
   }
 
   .brand-stage {
-    min-height: 380px;
+    min-height: 600px;
   }
 
   .program-grid,
@@ -972,7 +1035,8 @@ h2 {
   }
 
   .mobile-menu.open {
-    max-height: 400px;
+    max-height: min(80vh, 600px);
+    overflow-y: auto;
   }
 
   .mobile-menu nav {
@@ -1029,7 +1093,8 @@ h2 {
   }
 
   .brand-stage {
-    min-height: 330px;
+    min-height: 430px;
+    padding: 0 8px;
   }
 
   .orbit span {

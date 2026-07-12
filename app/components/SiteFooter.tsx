@@ -4,6 +4,8 @@ const quickLinks = [
   { href: "/about", label: "About" },
   { href: "/programs", label: "Programs" },
   { href: "/events", label: "Events" },
+  { href: "/team", label: "Team" },
+  { href: "/news", label: "News" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -48,7 +50,7 @@ export default function SiteFooter() {
       </div>
 
       <div className="footer-bottom">
-        <span>&copy; {year} SIBS YOUTH. Part of SIBS International.</span>
+        <span>Copyright &copy; {year} SIBS Youth. All Rights Reserved</span>
       </div>
     </footer>
   );
