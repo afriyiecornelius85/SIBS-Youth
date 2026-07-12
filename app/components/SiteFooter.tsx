@@ -15,7 +15,7 @@ export default function SiteFooter() {
       <div className="footer-grid">
         <div className="footer-brand">
           <Link className="brand" href="/" aria-label="SIBS YOUTH home">
-            <img src="/sibs-youth-mark.svg" alt="" aria-hidden="true" />
+            <img src="/sibs-youth-mark.png" alt="" aria-hidden="true" />
             <span>
               <strong>SIBS</strong>
               <small>YOUTH</small>

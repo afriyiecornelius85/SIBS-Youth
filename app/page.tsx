@@ -50,7 +50,7 @@ export default function Home() {
           </div>
 
           <div className="brand-stage" aria-label="SIBS YOUTH brand mark">
-            <img className="stage-logo" src="/sibs-youth-logo.svg" alt="SIBS YOUTH logo" />
+            <img className="stage-logo" src="/sibs-youth-logo.png" alt="SIBS YOUTH logo" />
             <div className="orbit">
               {values.map((value) => (
                 <span key={value}>{value}</span>
