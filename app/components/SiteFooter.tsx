@@ -50,7 +50,7 @@ export default function SiteFooter() {
       </div>
 
       <div className="footer-bottom">
-        <span>Copyright &copy; {year} SIBS International, Inc. All Rights Reserved</span>
+        <span>Copyright &copy; {year} SIBS Youth. All Rights Reserved</span>
       </div>
     </footer>
   );
