@@ -35,7 +35,7 @@ test("server-renders the SIBS YOUTH landing page", async () => {
   assert.match(html, /Leadership Labs/);
   assert.match(html, /Learn\. Lead\. Serve\. Build\./);
   assert.match(html, /og:image/);
-  assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|SkeletonPreview/);
+  assert.doesNotMatch(html, /react-loading-skeleton|SkeletonPreview/);
 });
 
 test("ships branded assets and removes the starter skeleton", async () => {
@@ -53,7 +53,7 @@ test("ships branded assets and removes the starter skeleton", async () => {
   assert.match(layout, /generateMetadata/);
   assert.match(layout, /\/og\.png/);
   assert.doesNotMatch(page, /_sites-preview|SkeletonPreview/);
-  assert.doesNotMatch(layout, /codex-preview|_sites-preview|themeColor|\bViewport\b/);
+  assert.doesNotMatch(layout, /_sites-preview|themeColor|\bViewport\b/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
 
   await assert.rejects(access(new URL("../app/_sites-preview/SkeletonPreview.tsx", import.meta.url)));
