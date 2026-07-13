@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { LOCATION_LINES, LOCATION_NAME, PHONE_GLOBAL, PHONE_LOCAL } from "../lib/contact-info";
+import { CONTACT_EMAIL, gmailComposeUrl } from "../lib/email";
 
 const quickLinks = [
-  { href: "/about", label: "About" },
+  { href: "/about", label: "About Us" },
   { href: "/programs", label: "Programs" },
   { href: "/events", label: "Events" },
   { href: "/team", label: "Team" },
@@ -20,7 +22,9 @@ export default function SiteFooter() {
             <img src="/sibs-youth-mark.png" alt="" aria-hidden="true" />
             <span>
               <strong>SIBS</strong>
-              <small>YOUTH</small>
+              <small>
+                <em>Youth</em>
+              </small>
             </span>
           </Link>
           <p>
@@ -43,9 +47,29 @@ export default function SiteFooter() {
 
         <div className="footer-column">
           <p className="footer-heading">Get in touch</p>
-          <a href="mailto:afriyiecornelius85@gmail.com?subject=SIBS%20YOUTH%20Inquiry">
-            afriyiecornelius85@gmail.com
+
+          <p className="footer-subheading">Call Us</p>
+          <p className="footer-detail">{PHONE_LOCAL}</p>
+          <p className="footer-detail">{PHONE_GLOBAL}</p>
+
+          <p className="footer-subheading">Our Location</p>
+          <p className="footer-detail">{LOCATION_NAME}</p>
+          {LOCATION_LINES.map((line) => (
+            <p key={line} className="footer-detail">
+              {line}
+            </p>
+          ))}
+
+          <p className="footer-subheading">Email Us</p>
+          <a
+            className="footer-detail"
+            href={gmailComposeUrl({ subject: "SIBS YOUTH Inquiry" })}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {CONTACT_EMAIL}
           </a>
+
           <p className="footer-note">A youth movement under SIBS International.</p>
         </div>
       </div>

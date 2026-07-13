@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Reveal from "../components/Reveal";
 
 export const metadata: Metadata = {
   title: "News",
@@ -17,17 +18,19 @@ export default function NewsPage() {
         </p>
       </section>
 
-      <section className="events-empty-state">
-        <h2>No news posted yet.</h2>
-        <p>
-          This is where SIBS YOUTH will share chapter launches, program milestones, and press
-          mentions. Reach out if you have a media inquiry or want to be notified when updates go
-          live.
-        </p>
-        <Link className="button primary" href="/contact">
-          Contact Us
-        </Link>
-      </section>
+      <Reveal>
+        <section className="events-empty-state">
+          <h2>No news posted yet.</h2>
+          <p>
+            This is where SIBS YOUTH will share chapter launches, program milestones, and press
+            mentions. Reach out if you have a media inquiry or want to be notified when updates go
+            live.
+          </p>
+          <Link className="button primary" href="/contact">
+            Contact Us
+          </Link>
+        </section>
+      </Reveal>
     </main>
   );
 }

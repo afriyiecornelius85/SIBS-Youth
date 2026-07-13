@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
+  { href: "/about", label: "About Us" },
   { href: "/programs", label: "Programs" },
   { href: "/events", label: "Events" },
   { href: "/team", label: "Team" },
@@ -17,6 +17,14 @@ const navLinks = [
 export default function SiteHeader() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -28,13 +36,18 @@ export default function SiteHeader() {
   }, [menuOpen]);
 
   return (
-    <header className="site-header" aria-label="Primary navigation">
+    <header
+      className={scrolled ? "site-header scrolled" : "site-header"}
+      aria-label="Primary navigation"
+    >
       <div className="site-header-bar">
         <Link className="brand" href="/" aria-label="SIBS YOUTH home">
           <img src="/sibs-youth-mark.png" alt="" aria-hidden="true" />
           <span>
             <strong>SIBS</strong>
-            <small>YOUTH</small>
+            <small>
+              <em>Youth</em>
+            </small>
           </span>
         </Link>
 
@@ -55,12 +68,9 @@ export default function SiteHeader() {
         </nav>
 
         <div className="header-actions">
-          <Link className="button primary header-cta" href="/contact">
-            Get Involved
-          </Link>
           <button
             type="button"
-            className="menu-toggle"
+            className={menuOpen ? "menu-toggle open" : "menu-toggle"}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -89,13 +99,6 @@ export default function SiteHeader() {
               </Link>
             );
           })}
-          <Link
-            className="button primary mobile-cta"
-            href="/contact"
-            onClick={() => setMenuOpen(false)}
-          >
-            Get Involved
-          </Link>
         </nav>
       </div>
     </header>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import HeroSlideshow from "./components/HeroSlideshow";
+import Reveal from "./components/Reveal";
 
 const programTeasers = [
   {
@@ -33,38 +34,44 @@ export default function Home() {
         <HeroSlideshow />
       </section>
 
-      <section className="mission-band">
-        <div className="section-kicker">Mission</div>
-        <div className="mission-layout">
-          <h2>Youth with purpose, skill, and a place to belong.</h2>
-          <div>
-            <p>
-              SIBS YOUTH is a subsidiary of SIBS International, preparing young people for future
-              careers through leadership, digital skills, a football academy, and community
-              projects &mdash; including the drive to open up Cape Coast, Ghana to more
-              opportunity in commerce and entrepreneurship.
-            </p>
-            <Link className="button secondary" href="/about">
-              Read Our Story
-            </Link>
+      <Reveal>
+        <section className="mission-band">
+          <div className="section-kicker">Mission</div>
+          <div className="mission-layout">
+            <h2>Youth with purpose, skill, and a place to belong.</h2>
+            <div>
+              <p>
+                SIBS YOUTH is a subsidiary of SIBS International, preparing young people for
+                future careers through leadership, digital skills, a football academy, and
+                community projects &mdash; including the drive to open up Cape Coast, Ghana to
+                more opportunity in commerce and entrepreneurship.
+              </p>
+              <Link className="button secondary" href="/about">
+                Read Our Story
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </Reveal>
 
       <section className="programs">
-        <div className="section-heading">
-          <p className="section-kicker">Programs</p>
-          <h2>Built around the real ways young people grow.</h2>
-        </div>
-        <div className="program-grid">
-          {programTeasers.map((program) => (
-            <article className="program-card" key={program.title}>
-              <span aria-hidden="true" />
-              <h3>{program.title}</h3>
-              <p>{program.summary}</p>
-            </article>
-          ))}
-        </div>
+        <Reveal>
+          <div className="section-heading">
+            <p className="section-kicker">Programs</p>
+            <h2>Built around the real ways young people grow.</h2>
+          </div>
+        </Reveal>
+        <Reveal stagger>
+          <div className="program-grid">
+            {programTeasers.map((program) => (
+              <article className="program-card" key={program.title}>
+                <span aria-hidden="true" />
+                <h3>{program.title}</h3>
+                <p>{program.summary}</p>
+              </article>
+            ))}
+          </div>
+        </Reveal>
         <div className="section-cta">
           <Link className="button primary" href="/programs">
             See All 6 Programs
@@ -73,53 +80,61 @@ export default function Home() {
       </section>
 
       <section className="impact">
-        <div className="impact-copy">
-          <p className="section-kicker">Impact Model</p>
-          <h2>Learn. Lead. Serve. Build.</h2>
-          <p>
-            From the training pitch to the marketplace, SIBS YOUTH gives young people real
-            responsibility &mdash; whether that&apos;s a spot on the football academy roster, a
-            stake in Cape Coast&apos;s growing commerce scene, or a leadership role in their own
-            community.
-          </p>
-        </div>
-        <div className="metric-grid" aria-label="SIBS YOUTH impact highlights">
-          {metrics.map(([number, label]) => (
-            <div className="metric" key={label}>
-              <strong>{number}</strong>
-              <span>{label}</span>
-            </div>
-          ))}
-        </div>
+        <Reveal variant="left">
+          <div className="impact-copy">
+            <p className="section-kicker">Impact Model</p>
+            <h2>Learn. Lead. Serve. Build.</h2>
+            <p>
+              From the training pitch to the marketplace, SIBS YOUTH gives young people real
+              responsibility &mdash; whether that&apos;s a spot on the football academy roster, a
+              stake in Cape Coast&apos;s growing commerce scene, or a leadership role in their own
+              community.
+            </p>
+          </div>
+        </Reveal>
+        <Reveal stagger variant="right">
+          <div className="metric-grid" aria-label="SIBS YOUTH impact highlights">
+            {metrics.map(([number, label]) => (
+              <div className="metric" key={label}>
+                <strong>{number}</strong>
+                <span>{label}</span>
+              </div>
+            ))}
+          </div>
+        </Reveal>
       </section>
 
-      <section className="events-teaser">
-        <div>
-          <p className="section-kicker">Events</p>
-          <h2>Camps, showcases, and community action days.</h2>
-          <p>
-            See the kinds of gatherings SIBS YOUTH runs throughout the year and how to hear about
-            what&apos;s coming up next.
-          </p>
-        </div>
-        <Link className="button secondary" href="/events">
-          View Events
-        </Link>
-      </section>
+      <Reveal>
+        <section className="events-teaser">
+          <div>
+            <p className="section-kicker">Events</p>
+            <h2>Camps, showcases, and community action days.</h2>
+            <p>
+              See the kinds of gatherings SIBS YOUTH runs throughout the year and how to hear
+              about what&apos;s coming up next.
+            </p>
+          </div>
+          <Link className="button secondary" href="/events">
+            View Events
+          </Link>
+        </section>
+      </Reveal>
 
-      <section className="connect">
-        <div>
-          <p className="section-kicker">Connect</p>
-          <h2>Ready to launch the youth desk?</h2>
-          <p>
-            Use this identity for the official SIBS YOUTH launch, chapter introductions, mentor
-            outreach, event promotion, and partnership conversations.
-          </p>
-        </div>
-        <Link className="button primary" href="/contact">
-          Get Involved
-        </Link>
-      </section>
+      <Reveal>
+        <section className="connect">
+          <div>
+            <p className="section-kicker">Connect</p>
+            <h2>Ready to launch the youth desk?</h2>
+            <p>
+              Use this identity for the official SIBS YOUTH launch, chapter introductions, mentor
+              outreach, event promotion, and partnership conversations.
+            </p>
+          </div>
+          <Link className="button primary" href="/contact">
+            Get Involved
+          </Link>
+        </section>
+      </Reveal>
     </main>
   );
 }

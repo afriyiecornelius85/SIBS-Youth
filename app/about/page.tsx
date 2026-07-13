@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Reveal from "../components/Reveal";
 
 export const metadata: Metadata = {
   title: "About",
@@ -44,61 +45,71 @@ export default function AboutPage() {
       </section>
 
       <section className="values-section">
-        <div className="section-heading">
-          <p className="section-kicker">Our Values</p>
-          <h2>What SIBS YOUTH stands for.</h2>
-        </div>
-        <div className="values-grid">
-          {values.map((value) => (
-            <article className="value-card" key={value.name}>
-              <h3>{value.name}</h3>
-              <p>{value.description}</p>
-            </article>
-          ))}
-        </div>
+        <Reveal>
+          <div className="section-heading">
+            <p className="section-kicker">Our Values</p>
+            <h2>What SIBS YOUTH stands for.</h2>
+          </div>
+        </Reveal>
+        <Reveal stagger>
+          <div className="values-grid">
+            {values.map((value) => (
+              <article className="value-card" key={value.name}>
+                <h3>{value.name}</h3>
+                <p>{value.description}</p>
+              </article>
+            ))}
+          </div>
+        </Reveal>
       </section>
 
       <section className="story-section">
-        <div className="story-copy">
-          <p className="section-kicker">Our Story</p>
-          <h2>Part of the SIBS International family.</h2>
-          <p>
-            SIBS YOUTH is the youth-focused subsidiary of SIBS International, built to prepare the
-            next generation for future careers and give them a dedicated home for leadership
-            formation, service, and digital readiness. The movement also undertakes projects on
-            behalf of SIBS International, including a youth football academy where players with
-            talent train and get seen, and the drive to open up Cape Coast, Ghana to more
-            opportunity in commerce and entrepreneurship.
-          </p>
-          <p>
-            Every program, mentorship circle, and project ties back to the same mission: preparing
-            young people to lead with character and build real opportunity in their own
-            communities.
-          </p>
-          <Link className="button primary" href="/programs">
-            See Our Programs
-          </Link>
-        </div>
-        <img
-          className="story-photo"
-          src="/cape-coast.jpg"
-          alt="Scenic view over Cape Coast, Ghana"
-        />
+        <Reveal variant="left">
+          <div className="story-copy">
+            <p className="section-kicker">Our Story</p>
+            <h2>Part of the SIBS International family.</h2>
+            <p>
+              SIBS YOUTH is the youth-focused subsidiary of SIBS International, built to prepare
+              the next generation for future careers and give them a dedicated home for
+              leadership formation, service, and digital readiness. The movement also undertakes
+              projects on behalf of SIBS International, including a youth football academy where
+              players with talent train and get seen, and the drive to open up Cape Coast, Ghana
+              to more opportunity in commerce and entrepreneurship.
+            </p>
+            <p>
+              Every program, mentorship circle, and project ties back to the same mission:
+              preparing young people to lead with character and build real opportunity in their
+              own communities.
+            </p>
+            <Link className="button primary" href="/programs">
+              See Our Programs
+            </Link>
+          </div>
+        </Reveal>
+        <Reveal variant="right">
+          <img
+            className="story-photo"
+            src="/cape-coast.jpg"
+            alt="Scenic view over Cape Coast, Ghana"
+          />
+        </Reveal>
       </section>
 
-      <section className="connect">
-        <div>
-          <p className="section-kicker">Connect</p>
-          <h2>Want to be part of the story?</h2>
-          <p>
-            Reach out to learn about chapters, mentorship, partnerships, or how to get your
-            community involved.
-          </p>
-        </div>
-        <Link className="button primary" href="/contact">
-          Get Involved
-        </Link>
-      </section>
+      <Reveal>
+        <section className="connect">
+          <div>
+            <p className="section-kicker">Connect</p>
+            <h2>Want to be part of the story?</h2>
+            <p>
+              Reach out to learn about chapters, mentorship, partnerships, or how to get your
+              community involved.
+            </p>
+          </div>
+          <Link className="button primary" href="/contact">
+            Get Involved
+          </Link>
+        </section>
+      </Reveal>
     </main>
   );
 }
