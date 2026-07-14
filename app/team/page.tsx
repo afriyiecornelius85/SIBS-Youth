@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Reveal from "../components/Reveal";
 
 export const metadata: Metadata = {
   title: "Team",
@@ -39,33 +40,39 @@ export default function TeamPage() {
       </section>
 
       <section className="values-section">
-        <div className="section-heading">
-          <p className="section-kicker">Leadership Roles</p>
-          <h2>Who runs the movement.</h2>
-        </div>
-        <div className="values-grid">
-          {roles.map((role) => (
-            <article className="value-card" key={role.title}>
-              <h3>{role.title}</h3>
-              <p>{role.summary}</p>
-            </article>
-          ))}
-        </div>
+        <Reveal>
+          <div className="section-heading">
+            <p className="section-kicker">Leadership Roles</p>
+            <h2>Who runs the movement.</h2>
+          </div>
+        </Reveal>
+        <Reveal stagger>
+          <div className="values-grid">
+            {roles.map((role) => (
+              <article className="value-card" key={role.title}>
+                <h3>{role.title}</h3>
+                <p>{role.summary}</p>
+              </article>
+            ))}
+          </div>
+        </Reveal>
       </section>
 
-      <section className="connect">
-        <div>
-          <p className="section-kicker">Join the Team</p>
-          <h2>Want to lead, mentor, or coordinate?</h2>
-          <p>
-            Reach out and tell us which role fits &mdash; we&apos;re actively recruiting mentors and
-            coordinators for the launch.
-          </p>
-        </div>
-        <Link className="button primary" href="/contact">
-          Get Involved
-        </Link>
-      </section>
+      <Reveal>
+        <section className="connect">
+          <div>
+            <p className="section-kicker">Join the Team</p>
+            <h2>Want to lead, mentor, or coordinate?</h2>
+            <p>
+              Reach out and tell us which role fits &mdash; we&apos;re actively recruiting mentors
+              and coordinators for the launch.
+            </p>
+          </div>
+          <Link className="button primary" href="/contact">
+            Get Involved
+          </Link>
+        </section>
+      </Reveal>
     </main>
   );
 }

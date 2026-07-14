@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Reveal from "../components/Reveal";
 
 export const metadata: Metadata = {
   title: "Events",
@@ -38,31 +39,37 @@ export default function EventsPage() {
       </section>
 
       <section className="event-types-section">
-        <div className="section-heading">
-          <p className="section-kicker">What We Run</p>
-          <h2>Recurring event types.</h2>
-        </div>
-        <div className="event-types-grid">
-          {eventTypes.map((event) => (
-            <article className="event-type-card" key={event.title}>
-              <span aria-hidden="true" />
-              <h3>{event.title}</h3>
-              <p>{event.description}</p>
-            </article>
-          ))}
-        </div>
+        <Reveal>
+          <div className="section-heading">
+            <p className="section-kicker">What We Run</p>
+            <h2>Recurring event types.</h2>
+          </div>
+        </Reveal>
+        <Reveal stagger>
+          <div className="event-types-grid">
+            {eventTypes.map((event) => (
+              <article className="event-type-card" key={event.title}>
+                <span aria-hidden="true" />
+                <h3>{event.title}</h3>
+                <p>{event.description}</p>
+              </article>
+            ))}
+          </div>
+        </Reveal>
       </section>
 
-      <section className="events-empty-state">
-        <h2>No events are scheduled yet.</h2>
-        <p>
-          As chapters launch, dates will be posted here first. In the meantime, reach out and
-          we&apos;ll let you know what&apos;s being planned and how to get on the list.
-        </p>
-        <Link className="button primary" href="/contact">
-          Ask About Upcoming Events
-        </Link>
-      </section>
+      <Reveal>
+        <section className="events-empty-state">
+          <h2>No events are scheduled yet.</h2>
+          <p>
+            As chapters launch, dates will be posted here first. In the meantime, reach out and
+            we&apos;ll let you know what&apos;s being planned and how to get on the list.
+          </p>
+          <Link className="button primary" href="/contact">
+            Ask About Upcoming Events
+          </Link>
+        </section>
+      </Reveal>
     </main>
   );
 }

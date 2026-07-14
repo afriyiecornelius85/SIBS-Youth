@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import Reveal from "../components/Reveal";
+import { LOCATION_LINES, LOCATION_NAME, PHONE_GLOBAL, PHONE_LOCAL } from "../lib/contact-info";
+import { CONTACT_EMAIL, gmailComposeUrl } from "../lib/email";
 import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
@@ -17,20 +20,52 @@ export default function ContactPage() {
           Use this identity for the official SIBS YOUTH launch, chapter introductions, mentor
           outreach, event promotion, and partnership conversations.
         </p>
-        <a
-          className="button primary"
-          href="mailto:afriyiecornelius85@gmail.com?subject=SIBS%20YOUTH%20Inquiry"
-        >
-          Email Us Directly
-        </a>
       </section>
 
       <section className="contact-form-section">
-        <div className="section-heading">
-          <p className="section-kicker">Or Send a Message</p>
-          <h2>Tell us how you&apos;d like to be involved.</h2>
-        </div>
-        <ContactForm />
+        <Reveal variant="left">
+          <div className="contact-info-col">
+            <h2>Contact Us</h2>
+
+            <div className="contact-block">
+              <h3>Call Us</h3>
+              <p className="contact-label">Phone</p>
+              <p className="contact-value">{PHONE_LOCAL}</p>
+              <p className="contact-label">Global</p>
+              <p className="contact-value">{PHONE_GLOBAL}</p>
+            </div>
+
+            <div className="contact-block">
+              <h3>Our Location</h3>
+              <p className="contact-value contact-value-strong">{LOCATION_NAME}</p>
+              {LOCATION_LINES.map((line) => (
+                <p key={line} className="contact-value">
+                  {line}
+                </p>
+              ))}
+            </div>
+
+            <div className="contact-block">
+              <h3>Email Us</h3>
+              <p className="contact-label">Email</p>
+              <a
+                className="contact-value contact-email-link"
+                href={gmailComposeUrl({ subject: "SIBS YOUTH Inquiry" })}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {CONTACT_EMAIL}
+              </a>
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal variant="right">
+          <div className="contact-form-col">
+            <h2>Write Us</h2>
+            <ContactForm />
+          </div>
+        </Reveal>
       </section>
     </main>
   );

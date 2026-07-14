@@ -84,6 +84,27 @@ export default function HeroSlideshow() {
       </div>
       <div className="hero-slide-scrim" aria-hidden="true" />
 
+      <button
+        type="button"
+        className="hero-arrow hero-arrow-prev"
+        aria-label="Show previous slide"
+        onClick={() => setActiveIndex((index) => (index - 1 + slides.length) % slides.length)}
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M15 5l-7 7 7 7" />
+        </svg>
+      </button>
+      <button
+        type="button"
+        className="hero-arrow hero-arrow-next"
+        aria-label="Show next slide"
+        onClick={() => setActiveIndex((index) => (index + 1) % slides.length)}
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
       <div className="hero-overlay">
         <div className="hero-slide-viewport" aria-live="off">
           {slides.map((slide, index) => (

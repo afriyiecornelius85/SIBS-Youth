@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-
-const CONTACT_EMAIL = "afriyiecornelius85@gmail.com";
+import { gmailComposeUrl } from "../lib/email";
 
 const reasons = ["Join as a member", "Volunteer / Mentor", "Partner with us", "General question"];
 
@@ -17,9 +16,8 @@ export default function ContactForm() {
 
     const subject = `SIBS YOUTH — ${reason}`;
     const body = [`Name: ${name}`, `Email: ${email}`, "", message].join("\n");
-    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    window.location.href = mailto;
+    window.open(gmailComposeUrl({ subject, body }), "_blank", "noopener,noreferrer");
   }
 
   return (
@@ -76,7 +74,7 @@ export default function ContactForm() {
         Send Message
       </button>
       <p className="form-note">
-        This opens your email app with your message pre-filled &mdash; nothing is sent
+        This opens Gmail in a new tab with your message pre-filled &mdash; nothing is sent
         automatically.
       </p>
     </form>

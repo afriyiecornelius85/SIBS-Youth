@@ -55,8 +55,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Yellowtail&display=swap"
         />
+        <noscript>
+          <style>{`.reveal, .reveal-stagger > * { opacity: 1 !important; transform: none !important; }`}</style>
+        </noscript>
         <SiteHeader />
         {children}
         <SiteFooter />

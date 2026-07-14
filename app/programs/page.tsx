@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Reveal from "../components/Reveal";
 
 export const metadata: Metadata = {
   title: "Programs",
@@ -122,37 +123,46 @@ export default function ProgramsPage() {
       </section>
 
       <section className="program-detail-list">
-        {programs.map((program, index) => (
-          <article
-            className={index % 2 === 1 ? "program-detail-row reverse" : "program-detail-row"}
-            key={program.title}
-          >
-            <div className="program-detail-copy">
-              <span className="program-icon" aria-hidden="true">
-                {program.icon}
-              </span>
-              <h2>{program.title}</h2>
-              <p>{program.detail}</p>
-              <p className="program-audience">
-                <strong>Who it&apos;s for: </strong>
-                {program.audience}
-              </p>
-            </div>
-            <img className="program-detail-photo" src={program.image} alt={program.imageAlt} />
-          </article>
-        ))}
+        {programs.map((program, index) => {
+          const reversed = index % 2 === 1;
+          return (
+            <article
+              className={reversed ? "program-detail-row reverse" : "program-detail-row"}
+              key={program.title}
+            >
+              <Reveal variant={reversed ? "right" : "left"}>
+                <div className="program-detail-copy">
+                  <span className="program-icon" aria-hidden="true">
+                    {program.icon}
+                  </span>
+                  <h2>{program.title}</h2>
+                  <p>{program.detail}</p>
+                  <p className="program-audience">
+                    <strong>Who it&apos;s for: </strong>
+                    {program.audience}
+                  </p>
+                </div>
+              </Reveal>
+              <Reveal variant={reversed ? "left" : "right"}>
+                <img className="program-detail-photo" src={program.image} alt={program.imageAlt} />
+              </Reveal>
+            </article>
+          );
+        })}
       </section>
 
-      <section className="connect">
-        <div>
-          <p className="section-kicker">Join a Program</p>
-          <h2>Ready to find your pillar?</h2>
-          <p>Tell us which program fits and we&apos;ll help you find your place in it.</p>
-        </div>
-        <Link className="button primary" href="/contact">
-          Get Involved
-        </Link>
-      </section>
+      <Reveal>
+        <section className="connect">
+          <div>
+            <p className="section-kicker">Join a Program</p>
+            <h2>Ready to find your pillar?</h2>
+            <p>Tell us which program fits and we&apos;ll help you find your place in it.</p>
+          </div>
+          <Link className="button primary" href="/contact">
+            Get Involved
+          </Link>
+        </section>
+      </Reveal>
     </main>
   );
 }
