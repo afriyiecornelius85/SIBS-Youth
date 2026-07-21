@@ -5,8 +5,47 @@ import Reveal from "../components/Reveal";
 export const metadata: Metadata = {
   title: "Team",
   description:
-    "The leadership roles behind SIBS YOUTH, and how to join as a mentor, coordinator, or volunteer.",
+    "The leaders of the SIBS International Global Youth Network, and the SIBS YOUTH chapter roles we're filling with mentors, coordinators, and volunteers.",
 };
+
+const networkLeaders = [
+  {
+    name: "Highly Esteemed Amb. Clinton Arko Agyemang",
+    title: "Commander-in-Chief",
+    summary: "Sets the overall vision and direction for the SIBS International Global Youth Network.",
+    photo: "/team/clinton-arko-agyemang.jpg",
+  },
+  {
+    name: "Miss Stephanie Ankrah",
+    title: "Second-in-Command",
+    summary: "Deputizes for the Commander-in-Chief and helps coordinate the network's chapters and departments.",
+    photo: "/team/stephanie-ankrah.jpg",
+  },
+  {
+    name: "Ambassador Afriyie Cornelius",
+    title: "Chief Projects Manager and IT Lead",
+    summary: "Runs the network's key projects end to end and leads its technology and digital systems.",
+    photo: "/team/afriyie-cornelius.jpg",
+  },
+  {
+    name: "Pastor Priscilla Mensah",
+    title: "General – Operations and Management",
+    summary: "Oversees daily operations, keeping the network's teams, resources, and processes running smoothly.",
+    photo: "/team/priscilla-mensah.jpg",
+  },
+  {
+    name: "Amb. Prince Kofi Amanpeni",
+    title: "General – Agriculture",
+    summary: "Leads the network's agriculture initiatives, building skills and opportunity in farming and agribusiness.",
+    photo: "/team/prince-kofi-amanpeni.jpg",
+  },
+  {
+    name: "Abubakar Mustafa",
+    title: "General – Research and Development",
+    summary: "Heads research and development, testing new ideas before they scale across the network.",
+    photo: "/team/abubakar-mustafa.jpg",
+  },
+];
 
 const roles = [
   {
@@ -34,16 +73,38 @@ export default function TeamPage() {
         <p className="section-kicker">Team</p>
         <h1>Meet the people building SIBS YOUTH.</h1>
         <p className="hero-lede">
-          The team is still being assembled. Here are the leadership roles we&apos;re filling with
-          mentors, coordinators, and volunteers as chapters launch.
+          SIBS YOUTH is part of the SIBS International Global Youth Network. Below, meet the
+          network&apos;s leadership, followed by the SIBS YOUTH chapter roles we&apos;re still
+          filling with mentors, coordinators, and volunteers as we launch.
         </p>
       </section>
 
       <section className="values-section">
         <Reveal>
           <div className="section-heading">
-            <p className="section-kicker">Leadership Roles</p>
-            <h2>Who runs the movement.</h2>
+            <p className="section-kicker">Network Leadership</p>
+            <h2>The heads of the SIBS International Global Youth Network.</h2>
+          </div>
+        </Reveal>
+        <Reveal stagger>
+          <div className="leader-grid">
+            {networkLeaders.map((leader) => (
+              <article className="leader-card" key={leader.name}>
+                <img className="leader-photo" src={leader.photo} alt={leader.name} />
+                <h3>{leader.name}</h3>
+                <p className="leader-title">{leader.title}</p>
+                <p className="leader-summary">{leader.summary}</p>
+              </article>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
+      <section className="roles-section">
+        <Reveal>
+          <div className="section-heading">
+            <p className="section-kicker">SIBS Youth Chapter Roles</p>
+            <h2>Who runs SIBS YOUTH day to day.</h2>
           </div>
         </Reveal>
         <Reveal stagger>

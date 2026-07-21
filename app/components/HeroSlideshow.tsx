@@ -47,6 +47,20 @@ const slides: Slide[] = [
     image: "/digital-skills.jpg",
     imageAlt: "Young professional working on a laptop in a training room",
   },
+  {
+    eyebrow: "Service Projects",
+    heading: "Serve With Courage",
+    lede: "Volunteers showing up for community health outreach days, turning empathy into hands-on service.",
+    image: "/health-outreach-team.jpg",
+    imageAlt: "SIBS YOUTH volunteers in white coats posing together at a community health outreach event",
+  },
+  {
+    eyebrow: "Service Projects",
+    heading: "Create Positive Change",
+    lede: "Community action days that bring health screenings, care, and connection directly to the people who need them.",
+    image: "/health-outreach-community.jpg",
+    imageAlt: "Community members seated under a tent at a SIBS YOUTH health outreach event",
+  },
 ];
 
 const AUTO_ADVANCE_MS = 6000;
