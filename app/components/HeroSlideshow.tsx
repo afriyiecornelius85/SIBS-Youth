@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState, useSyncExternalStore } from "react";
 
 type Slide = {
   eyebrow: string;
@@ -65,16 +65,59 @@ const slides: Slide[] = [
 
 const AUTO_ADVANCE_MS = 6000;
 
+function subscribeToReducedMotion(onChange: () => void) {
+  const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+  query.addEventListener("change", onChange);
+  return () => query.removeEventListener("change", onChange);
+}
+
+function getReducedMotionSnapshot() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+function getReducedMotionServerSnapshot() {
+  return false;
+}
+
+type SlideshowState = { activeIndex: number; loadedIndices: Set<number> };
+type SlideshowAction = { type: "advance" } | { type: "goto"; index: number };
+
+function withLoaded(activeIndex: number, loadedIndices: Set<number>): SlideshowState {
+  const upcoming = (activeIndex + 1) % slides.length;
+  if (loadedIndices.has(activeIndex) && loadedIndices.has(upcoming)) {
+    return { activeIndex, loadedIndices };
+  }
+  return { activeIndex, loadedIndices: new Set(loadedIndices).add(activeIndex).add(upcoming) };
+}
+
+function slideshowReducer(state: SlideshowState, action: SlideshowAction): SlideshowState {
+  const activeIndex =
+    action.type === "advance" ? (state.activeIndex + 1) % slides.length : action.index;
+  return withLoaded(activeIndex, state.loadedIndices);
+}
+
 export default function HeroSlideshow() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [paused, setPaused] = useState(false);
+  const [{ activeIndex, loadedIndices }, dispatch] = useReducer(
+    slideshowReducer,
+    withLoaded(0, new Set()),
+  );
+  const [hovering, setHovering] = useState(false);
+  // null = no explicit user choice yet, so the reduced-motion preference decides.
+  const [playOverride, setPlayOverride] = useState<boolean | null>(null);
+  const prefersReducedMotion = useSyncExternalStore(
+    subscribeToReducedMotion,
+    getReducedMotionSnapshot,
+    getReducedMotionServerSnapshot,
+  );
+
+  const playing = playOverride ?? !prefersReducedMotion;
+  const paused = hovering || !playing;
 
   useEffect(() => {
     if (paused) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const timer = window.setInterval(() => {
-      setActiveIndex((index) => (index + 1) % slides.length);
+      dispatch({ type: "advance" });
     }, AUTO_ADVANCE_MS);
 
     return () => window.clearInterval(timer);
@@ -83,8 +126,8 @@ export default function HeroSlideshow() {
   return (
     <div
       className="hero-slideshow"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
     >
       <div className="hero-slide-photos" aria-hidden="true">
         {slides.map((slide, index) => (
@@ -92,7 +135,14 @@ export default function HeroSlideshow() {
             className={index === activeIndex ? "hero-slide-photo active" : "hero-slide-photo"}
             key={slide.image}
           >
-            <img src={slide.image} alt="" />
+            {loadedIndices.has(index) ? (
+              <img
+                src={slide.image}
+                alt=""
+                decoding="async"
+                fetchPriority={index === 0 ? "high" : "auto"}
+              />
+            ) : null}
           </div>
         ))}
       </div>
@@ -102,7 +152,7 @@ export default function HeroSlideshow() {
         type="button"
         className="hero-arrow hero-arrow-prev"
         aria-label="Show previous slide"
-        onClick={() => setActiveIndex((index) => (index - 1 + slides.length) % slides.length)}
+        onClick={() => dispatch({ type: "goto", index: (activeIndex - 1 + slides.length) % slides.length })}
       >
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M15 5l-7 7 7 7" />
@@ -112,7 +162,7 @@ export default function HeroSlideshow() {
         type="button"
         className="hero-arrow hero-arrow-next"
         aria-label="Show next slide"
-        onClick={() => setActiveIndex((index) => (index + 1) % slides.length)}
+        onClick={() => dispatch({ type: "goto", index: (activeIndex + 1) % slides.length })}
       >
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M9 5l7 7-7 7" />
@@ -143,17 +193,36 @@ export default function HeroSlideshow() {
           </Link>
         </div>
 
-        <div className="hero-dots" role="group" aria-label="Choose a headline to show">
-          {slides.map((slide, index) => (
-            <button
-              key={slide.heading}
-              type="button"
-              className={index === activeIndex ? "hero-dot active" : "hero-dot"}
-              aria-label={`Show headline ${index + 1} of ${slides.length}: ${slide.heading}`}
-              aria-current={index === activeIndex}
-              onClick={() => setActiveIndex(index)}
-            />
-          ))}
+        <div className="hero-dots-row">
+          <div className="hero-dots" role="group" aria-label="Choose a headline to show">
+            {slides.map((slide, index) => (
+              <button
+                key={slide.heading}
+                type="button"
+                className={index === activeIndex ? "hero-dot active" : "hero-dot"}
+                aria-label={`Show headline ${index + 1} of ${slides.length}: ${slide.heading}`}
+                aria-current={index === activeIndex}
+                onClick={() => dispatch({ type: "goto", index })}
+              />
+            ))}
+          </div>
+          <button
+            type="button"
+            className="hero-play-toggle"
+            aria-label={playing ? "Pause slideshow" : "Play slideshow"}
+            aria-pressed={!playing}
+            onClick={() => setPlayOverride(!playing)}
+          >
+            {playing ? (
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 4h4v16H6zM14 4h4v16h-4z" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 4l14 8-14 8V4z" />
+              </svg>
+            )}
+          </button>
         </div>
       </div>
     </div>

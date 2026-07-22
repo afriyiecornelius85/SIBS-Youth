@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Reveal from "../components/Reveal";
 import { LOCATION_LINES, LOCATION_NAME, PHONE_GLOBAL, PHONE_LOCAL } from "../lib/contact-info";
-import { CONTACT_EMAIL, gmailComposeUrl } from "../lib/email";
+import { CONTACT_EMAIL, mailtoUrl } from "../lib/email";
 import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
@@ -48,12 +48,7 @@ export default function ContactPage() {
             <div className="contact-block">
               <h3>Email Us</h3>
               <p className="contact-label">Email</p>
-              <a
-                className="contact-value contact-email-link"
-                href={gmailComposeUrl({ subject: "SIBS YOUTH Inquiry" })}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a className="contact-value contact-email-link" href={mailtoUrl({ subject: "SIBS YOUTH Inquiry" })}>
                 {CONTACT_EMAIL}
               </a>
             </div>

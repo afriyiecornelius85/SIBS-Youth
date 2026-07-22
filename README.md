@@ -17,6 +17,19 @@ npm run dev
 npm run build
 ```
 
+## Environment Variables
+
+- `RESEND_API_KEY` &mdash; lets the contact form ([app/api/contact/route.ts](app/api/contact/route.ts))
+  send email via [Resend](https://resend.com).
+  1. Create a free Resend account and copy an API key from the dashboard.
+  2. **Locally**: add `RESEND_API_KEY=re_your_key` to a `.env.local` file (already gitignored,
+     auto-loaded by vinext).
+  3. **On Render**: set it on the service's **Environment** tab &mdash; `render.yaml` declares
+     the key with `sync: false` so Render prompts for it instead of expecting a value in the
+     blueprint.
+  4. Without it, the API route returns a clear error and the form still offers a `mailto:`
+     fallback link, so it degrades gracefully instead of breaking.
+
 ## Deploying to Render
 
 `render.yaml` at the repo root is a Render

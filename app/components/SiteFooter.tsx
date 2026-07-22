@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { LOCATION_LINES, LOCATION_NAME, PHONE_GLOBAL, PHONE_LOCAL } from "../lib/contact-info";
-import { CONTACT_EMAIL, gmailComposeUrl } from "../lib/email";
+import { CONTACT_EMAIL, mailtoUrl } from "../lib/email";
 
 const quickLinks = [
   { href: "/about", label: "About Us" },
@@ -61,12 +61,7 @@ export default function SiteFooter() {
           ))}
 
           <p className="footer-subheading">Email Us</p>
-          <a
-            className="footer-detail"
-            href={gmailComposeUrl({ subject: "SIBS YOUTH Inquiry" })}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a className="footer-detail" href={mailtoUrl({ subject: "SIBS YOUTH Inquiry" })}>
             {CONTACT_EMAIL}
           </a>
 
