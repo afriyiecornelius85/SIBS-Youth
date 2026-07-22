@@ -1,10 +1,11 @@
 export const CONTACT_EMAIL = "afriyiecornelius85@gmail.com";
 
-/** Builds a Gmail web compose link so "email us" opens Gmail directly instead of relying on the visitor's OS mail handler. */
-export function gmailComposeUrl(options: { subject?: string; body?: string } = {}): string {
-  const params = new URLSearchParams({ view: "cm", fs: "1", to: CONTACT_EMAIL });
-  if (options.subject) params.set("su", options.subject);
-  if (options.body) params.set("body", options.body);
+/** Builds a mailto: link so "email us" opens the visitor's own mail app, prefilled. */
+export function mailtoUrl(options: { subject?: string; body?: string } = {}): string {
+  const params: string[] = [];
+  if (options.subject) params.push(`subject=${encodeURIComponent(options.subject)}`);
+  if (options.body) params.push(`body=${encodeURIComponent(options.body)}`);
 
-  return `https://mail.google.com/mail/?${params.toString()}`;
+  const query = params.length > 0 ? `?${params.join("&")}` : "";
+  return `mailto:${CONTACT_EMAIL}${query}`;
 }
