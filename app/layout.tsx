@@ -18,7 +18,9 @@ export async function generateMetadata(): Promise<Metadata> {
     icons: {
       icon: "/sibs-youth-mark.png",
       shortcut: "/sibs-youth-mark.png",
+      apple: "/apple-touch-icon.png",
     },
+    manifest: "/manifest.webmanifest",
     openGraph: {
       title,
       description,
@@ -43,14 +45,32 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const origin = await getSiteOrigin();
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: title,
+    url: origin,
+    logo: `${origin}/sibs-youth-mark.png`,
+    description,
+    parentOrganization: {
+      "@type": "Organization",
+      name: "SIBS International",
+    },
+  };
+
   return (
     <html lang="en">
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
