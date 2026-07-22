@@ -18,6 +18,7 @@ export default function SiteHeader() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -37,7 +38,9 @@ export default function SiteHeader() {
 
   return (
     <header
-      className={scrolled ? "site-header scrolled" : "site-header"}
+      className={["site-header", isHome ? "home" : "", scrolled ? "scrolled" : ""]
+        .filter(Boolean)
+        .join(" ")}
       aria-label="Primary navigation"
     >
       <div className="site-header-bar">
