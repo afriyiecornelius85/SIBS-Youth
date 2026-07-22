@@ -555,10 +555,50 @@ h2 {
   color: rgba(255, 255, 255, 0.86);
 }
 
+.hero-dots-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 28px;
+}
+
 .hero-dots {
   display: flex;
   gap: 10px;
-  margin-top: 28px;
+}
+
+.hero-play-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--white);
+  cursor: pointer;
+  padding: 0;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.hero-play-toggle svg {
+  width: 13px;
+  height: 13px;
+  fill: currentColor;
+}
+
+.hero-play-toggle:hover,
+.hero-play-toggle:focus-visible {
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.hero-play-toggle:hover {
+  transform: scale(1.08);
 }
 
 .hero-dot {
