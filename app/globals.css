@@ -679,6 +679,7 @@ h2 {
 /* ---------- Mission ---------- */
 
 .mission-band,
+.difference,
 .programs,
 .impact,
 .connect,
@@ -695,6 +696,18 @@ h2 {
 .mission-band {
   background: var(--ink);
   color: var(--white);
+}
+
+.difference {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.difference p {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.65;
 }
 
 .mission-layout,
@@ -859,6 +872,14 @@ h2 {
 
 .value-card:nth-child(4) {
   border-top-color: var(--magenta);
+}
+
+.value-card:nth-child(5) {
+  border-top-color: var(--blue-deep);
+}
+
+.value-card:nth-child(6) {
+  border-top-color: var(--ink);
 }
 
 /* ---------- Network leader cards (Team page) ---------- */

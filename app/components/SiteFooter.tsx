@@ -28,9 +28,9 @@ export default function SiteFooter() {
             </span>
           </Link>
           <p>
-            A subsidiary of SIBS International preparing young people for future careers through
-            leadership, digital skills, a football academy, and the Cape Coast, Ghana
-            commerce &amp; entrepreneurship initiative.
+            The youth movement of SIBS International, equipping young people with practical
+            skills, mentorship, and real opportunities in agriculture, enterprise, sport, digital
+            skills, financial literacy, and leadership.
           </p>
         </div>
 

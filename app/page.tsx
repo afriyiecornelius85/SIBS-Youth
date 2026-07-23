@@ -4,25 +4,25 @@ import Reveal from "./components/Reveal";
 
 const programTeasers = [
   {
-    title: "Football Academy",
+    title: "Agriculture",
     summary:
-      "A youth football academy where promising players train, compete, and get scouted for what comes next.",
+      "Modern agribusiness — crop and poultry farming, food processing, and agricultural marketing, not just farming.",
   },
   {
-    title: "Cape Coast Commerce & Entrepreneurship",
+    title: "Entrepreneurship & Business",
     summary:
-      "Opening up Cape Coast, Ghana to more opportunity in commerce and entrepreneurship for young people.",
+      "Hands-on help shaping, testing, and growing a real business idea, from pricing to your first pitch.",
   },
   {
-    title: "Digital Skills",
+    title: "Football & Sports Development",
     summary:
-      "Hands-on learning for technology, media, design, and the tools young leaders need in a changing world.",
+      "Structured training, matches, and talent identification, open to and supported for young women too.",
   },
 ];
 
 const metrics = [
   ["6", "program pillars"],
-  ["4", "core values"],
+  ["6", "core values"],
   ["100%", "youth focused"],
   ["1", "shared mission"],
 ];
@@ -36,15 +36,16 @@ export default function Home() {
 
       <Reveal>
         <section className="mission-band">
-          <div className="section-kicker">Mission</div>
+          <div className="section-kicker">Welcome</div>
           <div className="mission-layout">
-            <h2>Youth with purpose, skill, and a place to belong.</h2>
+            <h2>Young people aren&apos;t the leaders of tomorrow. They&apos;re already leading today.</h2>
             <div>
               <p>
-                SIBS YOUTH is a subsidiary of SIBS International, preparing young people for
-                future careers through leadership, digital skills, a football academy, and
-                community projects &mdash; including the drive to open up Cape Coast, Ghana to
-                more opportunity in commerce and entrepreneurship.
+                SIBS YOUTH gives young people that place. We bring together students,
+                school-leavers, young farmers, footballers, creators, and future business owners
+                &mdash; and back them with training, mentorship, and real projects they own from
+                day one. This isn&apos;t a club you join to be talked at. It&apos;s a movement you
+                join to build something.
               </p>
               <Link className="button secondary" href="/about">
                 Read Our Story
@@ -54,11 +55,26 @@ export default function Home() {
         </section>
       </Reveal>
 
+      <Reveal>
+        <section className="difference">
+          <div className="section-heading">
+            <p className="section-kicker">What Makes Us Different</p>
+            <h2>A project and a pathway to lead it, not just a certificate.</h2>
+          </div>
+          <p>
+            Most youth programs hand young people a certificate. SIBS YOUTH hands them a project,
+            a team, and a pathway to lead it &mdash; inside a wider network of farms, businesses,
+            and partners through SIBS International. That combination of hands-on projects, real
+            economic sectors, and youth-led structure is what sets us apart.
+          </p>
+        </section>
+      </Reveal>
+
       <section className="programs">
         <Reveal>
           <div className="section-heading">
             <p className="section-kicker">Programs</p>
-            <h2>Built around the real ways young people grow.</h2>
+            <h2>One flagship, six connected pathways.</h2>
           </div>
         </Reveal>
         <Reveal stagger>
@@ -83,12 +99,12 @@ export default function Home() {
         <Reveal variant="left">
           <div className="impact-copy">
             <p className="section-kicker">Impact Model</p>
-            <h2>Learn. Lead. Serve. Build.</h2>
+            <h2>Learn. Build. Lead.</h2>
             <p>
-              From the training pitch to the marketplace, SIBS YOUTH gives young people real
-              responsibility &mdash; whether that&apos;s a spot on the football academy roster, a
-              stake in Cape Coast&apos;s growing commerce scene, or a leadership role in their own
-              community.
+              From the training pitch to the marketplace and the farm, SIBS YOUTH gives young
+              people real responsibility &mdash; whether that&apos;s a spot on the football
+              roster, a stake in a business or agribusiness project, or a leadership role in
+              their own community.
             </p>
           </div>
         </Reveal>
@@ -123,15 +139,15 @@ export default function Home() {
       <Reveal>
         <section className="connect">
           <div>
-            <p className="section-kicker">Connect</p>
-            <h2>Ready to launch the youth desk?</h2>
+            <p className="section-kicker">Join Us</p>
+            <h2>Your ideas deserve a platform.</h2>
             <p>
-              Use this identity for the official SIBS YOUTH launch, chapter introductions, mentor
-              outreach, event promotion, and partnership conversations.
+              Your talent deserves backing. Join SIBS YOUTH and help build the next generation
+              &mdash; starting with your own future.
             </p>
           </div>
           <Link className="button primary" href="/contact">
-            Get Involved
+            Join SIBS Youth
           </Link>
         </section>
       </Reveal>

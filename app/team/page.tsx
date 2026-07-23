@@ -54,11 +54,11 @@ const roles = [
   },
   {
     title: "Mentorship Lead",
-    summary: "Pairs members with mentors, alumni, and professionals and keeps Mentorship Circles running.",
+    summary: "Pairs members with mentors, alumni, and professionals and keeps the Leadership & Mentorship pathway running.",
   },
   {
     title: "Digital Skills Coordinator",
-    summary: "Runs the Digital Skills track and keeps the tools and curriculum current.",
+    summary: "Runs the Digital Skills & Innovation pathway and keeps the tools and curriculum current.",
   },
   {
     title: "Events & Partnerships Lead",

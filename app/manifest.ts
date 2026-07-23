@@ -3,7 +3,7 @@ export default function manifest() {
     name: "SIBS YOUTH",
     short_name: "SIBS Youth",
     description:
-      "SIBS YOUTH is the SIBS International subsidiary preparing young people for future careers through leadership, digital skills, a football academy, and the Cape Coast, Ghana commerce & entrepreneurship initiative.",
+      "SIBS YOUTH is the youth movement of SIBS International, equipping young people with practical skills, mentorship, and real opportunities in agriculture, enterprise, sport, digital skills, financial literacy, and leadership.",
     start_url: "/",
     display: "standalone",
     background_color: "#f6f8fa",
