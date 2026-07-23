@@ -5,66 +5,35 @@ import Reveal from "../components/Reveal";
 export const metadata: Metadata = {
   title: "Programs",
   description:
-    "The six program pillars SIBS YOUTH runs: leadership, digital skills, a football academy, the Cape Coast commerce and entrepreneurship initiative, service, and mentorship.",
+    "The six connected pathways SIBS YOUTH runs: agriculture, entrepreneurship and business, football and sports development, digital skills, financial literacy, and leadership and mentorship.",
 };
 
 const programs = [
   {
-    title: "Leadership Labs",
+    title: "Agriculture",
     summary:
-      "Practical sessions that help young people build confidence, communication, planning, and responsibility.",
+      "Modern agribusiness — crop and poultry farming, food processing, and agricultural marketing, not just farming.",
     detail:
-      "Cohort-based workshops where participants practice public speaking, run small projects, and take on real responsibility with feedback from peers and mentors along the way.",
-    audience: "Teens and young adults ready to step into their first leadership role.",
-    image: "/leadership-labs.jpg",
-    imageAlt: "Young man speaking into a microphone at a leadership session",
+      "We show young people that agriculture is a modern business, not just farming, but production, processing, packaging, marketing, and investment. Members train in a chosen area and work on a real farm or agribusiness project.",
+    audience: "Young people who see opportunity in farming, food, and agribusiness.",
+    image: "/cape-coast.jpg",
+    imageAlt: "Scenic view over Cape Coast, Ghana",
     icon: (
       <svg viewBox="0 0 48 48" aria-hidden="true">
-        <circle cx="24" cy="16" r="8" />
-        <path d="M8 40c0-8.8 7.2-14 16-14s16 5.2 16 14" />
+        <path d="M24 42V22" />
+        <path d="M24 22C24 15 18 11 11 11c0 7 6 11 13 11Z" />
+        <path d="M24 26c0-6 6-9 12-9 0 6-6 9-12 9Z" />
+        <path d="M10 42h28" />
       </svg>
     ),
   },
   {
-    title: "Digital Skills",
+    title: "Entrepreneurship & Business",
     summary:
-      "Hands-on learning for technology, media, design, and the tools young leaders need in a changing world.",
+      "Hands-on help shaping, testing, and growing a real business idea, from pricing to your first pitch.",
     detail:
-      "Guided practice with the software, media, and design tools young people need to create, communicate, and compete in a digital-first world.",
-    audience: "Youth building the tech and media skills to match their ambition.",
-    image: "/digital-skills.jpg",
-    imageAlt: "Young professional working on a laptop in a training room",
-    icon: (
-      <svg viewBox="0 0 48 48" aria-hidden="true">
-        <rect x="6" y="10" width="36" height="22" rx="2" />
-        <path d="M18 40h12M24 32v8" />
-      </svg>
-    ),
-  },
-  {
-    title: "Football Academy",
-    summary:
-      "A youth football academy where players with talent train, compete, and get seen.",
-    detail:
-      "Structured training sessions and matches that give promising young players a real path to develop their game, build discipline, and get scouted for what comes next.",
-    audience: "Young footballers ready to take their talent to the next level.",
-    image: "/football-academy.jpg",
-    imageAlt: "Youth football players training on a dirt pitch",
-    icon: (
-      <svg viewBox="0 0 48 48" aria-hidden="true">
-        <circle cx="24" cy="24" r="16" />
-        <path d="M24 15l6.5 4.7-2.5 7.6h-8l-2.5-7.6z" />
-        <path d="M24 15V9M30.5 19.7l5-3.5M17.5 19.7l-5-3.5M20 27.3l-2 6M28 27.3l2 6" />
-      </svg>
-    ),
-  },
-  {
-    title: "Cape Coast Commerce & Entrepreneurship",
-    summary:
-      "Opening up Cape Coast, Ghana to more opportunity in commerce and entrepreneurship for young people.",
-    detail:
-      "A SIBS International initiative helping young people in Cape Coast start and grow businesses, connecting them to markets, mentors, and the skills commerce takes.",
-    audience: "Young entrepreneurs and traders building opportunity in Cape Coast.",
+      "For young people with a business or a business idea, we help you shape it, test it, and grow it — covering business planning, pricing, branding, sales, digital marketing, record-keeping, and pitching.",
+    audience: "Young entrepreneurs and traders building a real business.",
     image: "/commerce-entrepreneurship.jpg",
     imageAlt: "Street vendor displaying goods at a market",
     icon: (
@@ -77,29 +46,63 @@ const programs = [
     ),
   },
   {
-    title: "Service Projects",
+    title: "Football & Sports Development",
     summary:
-      "Community action days where youth teams identify needs, organize volunteers, and deliver measurable help.",
+      "Structured training, matches, and talent identification, open to and supported for young women too.",
     detail:
-      "Teams identify a real need in their community, plan the response, organize volunteers, and deliver a project with a measurable outcome start to finish.",
-    audience: "Groups who want to turn a good idea into action on the ground.",
-    image: "/service-projects.jpg",
-    imageAlt: "A volunteer leading a group of children in a community activity",
+      "Football as a pathway to discipline, teamwork, and real opportunity: structured training, fitness sessions, tournaments, trials, and scouting links, with mentorship on and off the pitch. Girls' and young women's teams are welcome and supported.",
+    audience: "Young footballers of any gender ready to take their talent further.",
+    image: "/football-academy.jpg",
+    imageAlt: "Youth football players training on a dirt pitch",
     icon: (
       <svg viewBox="0 0 48 48" aria-hidden="true">
-        <path d="M24 40S8 30 8 18a8 8 0 0 1 16-2 8 8 0 0 1 16 2c0 12-16 22-16 22Z" />
+        <circle cx="24" cy="24" r="16" />
+        <path d="M24 15l6.5 4.7-2.5 7.6h-8l-2.5-7.6z" />
+        <path d="M24 15V9M30.5 19.7l5-3.5M17.5 19.7l-5-3.5M20 27.3l-2 6M28 27.3l2 6" />
       </svg>
     ),
   },
   {
-    title: "Mentorship Circles",
+    title: "Digital Skills & Innovation",
     summary:
-      "Guided conversations with trusted adults, alumni, and professionals who can open doors and steady the journey.",
+      "Practical digital skills for work, business, and communication — the ones that actually get you hired or earning online.",
     detail:
-      "Small-group conversations pairing young people with trusted adults, alumni, and professionals for steady guidance, honest feedback, and real connections.",
-    audience: "Anyone who wants a trusted adult in their corner.",
+      "Guided practice with computer basics, graphic design basics, social media management, digital marketing, and online business tools — the practical digital skills that actually get young people hired or earning online.",
+    audience: "Youth building the tech and media skills to match their ambition.",
+    image: "/digital-skills.jpg",
+    imageAlt: "Young professional working on a laptop in a training room",
+    icon: (
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <rect x="6" y="10" width="36" height="22" rx="2" />
+        <path d="M18 40h12M24 32v8" />
+      </svg>
+    ),
+  },
+  {
+    title: "Financial Literacy & Savings",
+    summary:
+      "Learn to budget, save, spend responsibly, and plan ahead — the skills that protect and grow what you earn.",
+    detail:
+      "Financial literacy comes first: budgeting, saving, responsible spending, and planning ahead. This is education, not a promise of funding — the skills that protect and grow whatever money a young person earns.",
+    audience: "Anyone who wants to build good money habits early.",
     image: "/mentorship-circles.jpg",
     imageAlt: "A group of professionals having a conversation",
+    icon: (
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="18" cy="28" r="10" />
+        <circle cx="30" cy="20" r="10" />
+      </svg>
+    ),
+  },
+  {
+    title: "Leadership & Mentorship",
+    summary:
+      "Paired with experienced mentors, and built up through workshops, public speaking, and real leadership roles.",
+    detail:
+      "Every member is paired into the mentorship network, connected to experienced farmers, entrepreneurs, coaches, and professionals — with leadership workshops, public speaking, goal-setting, and community leadership roles along the way.",
+    audience: "Anyone who wants a trusted mentor and a real leadership role.",
+    image: "/leadership-labs.jpg",
+    imageAlt: "Young man speaking into a microphone at a leadership session",
     icon: (
       <svg viewBox="0 0 48 48" aria-hidden="true">
         <circle cx="17" cy="18" r="7" />
@@ -115,10 +118,9 @@ export default function ProgramsPage() {
     <main>
       <section className="page-hero programs-hero">
         <p className="section-kicker">Programs</p>
-        <h1>Built around the real ways young people grow.</h1>
+        <h1>One flagship, six connected pathways.</h1>
         <p className="hero-lede">
-          Six pillars, one mission: give young people practical skills, real responsibility, and a
-          community that pushes them forward.
+          Every pathway feeds the same goal: a young person who can earn, lead, and give back.
         </p>
       </section>
 
@@ -155,8 +157,8 @@ export default function ProgramsPage() {
         <section className="connect">
           <div>
             <p className="section-kicker">Join a Program</p>
-            <h2>Ready to find your pillar?</h2>
-            <p>Tell us which program fits and we&apos;ll help you find your place in it.</p>
+            <h2>Ready to find your pathway?</h2>
+            <p>Tell us which pathway fits and we&apos;ll help you find your place in it.</p>
           </div>
           <Link className="button primary" href="/contact">
             Get Involved

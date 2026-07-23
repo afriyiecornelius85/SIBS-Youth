@@ -20,7 +20,7 @@ const eventTypes = [
       "Multi-day gatherings built around leadership training, creative showcases, and connection across chapters.",
   },
   {
-    title: "Mentorship Circle Meetups",
+    title: "Mentorship Meetups",
     description:
       "Regular small-group sessions where members sit down with mentors, alumni, and professionals for guidance.",
   },

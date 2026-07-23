@@ -14,50 +14,50 @@ type Slide = {
 const slides: Slide[] = [
   {
     eyebrow: "A SIBS International youth movement",
-    heading: "SIBS YOUTH",
-    lede: "Preparing young people to lead with character, serve with courage, build useful skills, and create positive change in their communities.",
+    heading: "Learn. Build. Lead.",
+    lede: "We help young people in Cape Coast, Ghana turn talent into livelihoods — through agriculture, enterprise, football, digital skills, and leadership. Young people don't just attend our programs; they run them.",
     image: "/hero-intro.jpg",
     imageAlt: "Group of African students standing together outdoors",
   },
   {
-    eyebrow: "Leadership Labs",
+    eyebrow: "Leadership & Mentorship",
     heading: "Lead With Character",
-    lede: "Practical sessions that build confidence, communication, planning, and real responsibility.",
+    lede: "Paired with experienced mentors, and built up through workshops, public speaking, and real leadership roles.",
     image: "/leadership-labs.jpg",
     imageAlt: "Young man speaking into a microphone at a leadership session",
   },
   {
-    eyebrow: "Football Academy",
+    eyebrow: "Football & Sports Development",
     heading: "Showcase Your Talent",
-    lede: "A youth football academy where promising players train, compete, and get seen.",
+    lede: "Structured training, matches, and talent identification — open to and supported for young women as much as young men.",
     image: "/football-academy.jpg",
     imageAlt: "Youth football players training on a dirt pitch",
   },
   {
-    eyebrow: "Cape Coast, Ghana",
-    heading: "Opening Doors to Opportunity",
-    lede: "A commerce and entrepreneurship initiative helping Cape Coast's youth build businesses and futures.",
-    image: "/cape-coast.jpg",
-    imageAlt: "Scenic view over Cape Coast, Ghana",
+    eyebrow: "Entrepreneurship & Business",
+    heading: "Build Your Business",
+    lede: "Hands-on help shaping, testing, and growing a real business idea — from pricing and branding to your first pitch.",
+    image: "/commerce-entrepreneurship.jpg",
+    imageAlt: "Street vendor displaying goods at a market",
   },
   {
-    eyebrow: "Digital Skills",
+    eyebrow: "Digital Skills & Innovation",
     heading: "Build Useful Skills",
-    lede: "Hands-on learning in technology, media, and design for a changing world.",
+    lede: "Practical digital skills for work, business, and communication — the kind that actually get young people hired or earning online.",
     image: "/digital-skills.jpg",
     imageAlt: "Young professional working on a laptop in a training room",
   },
   {
-    eyebrow: "Service Projects",
+    eyebrow: "Community & Service",
     heading: "Serve With Courage",
-    lede: "Volunteers showing up for community health outreach days, turning empathy into hands-on service.",
+    lede: "Every pathway feeds the same goal: young people who can earn, lead, and give back to their own community.",
     image: "/health-outreach-team.jpg",
     imageAlt: "SIBS YOUTH volunteers in white coats posing together at a community health outreach event",
   },
   {
-    eyebrow: "Service Projects",
+    eyebrow: "Community & Service",
     heading: "Create Positive Change",
-    lede: "Community action days that bring health screenings, care, and connection directly to the people who need them.",
+    lede: "Community action days that bring real care and connection directly to the people who need them.",
     image: "/health-outreach-community.jpg",
     imageAlt: "Community members seated under a tent at a SIBS YOUTH health outreach event",
   },
@@ -185,8 +185,11 @@ export default function HeroSlideshow() {
         </div>
 
         <div className="hero-actions" aria-label="SIBS YOUTH quick links">
-          <Link className="button primary" href="/programs">
-            Explore Programs
+          <Link className="button primary" href="/contact">
+            Join SIBS Youth
+          </Link>
+          <Link className="button secondary" href="/programs">
+            See Our Programs
           </Link>
           <Link className="button secondary" href="/contact">
             Partner With Us

@@ -22,11 +22,11 @@ test("server-renders the SIBS YOUTH landing page", async () => {
   const html = await response.text();
   assert.match(html, /<title>SIBS YOUTH<\/title>/i);
   assert.match(html, /A SIBS International youth movement/);
-  assert.match(html, /Explore Programs/);
-  assert.match(html, /Leadership Labs/);
-  assert.match(html, /Football Academy/);
+  assert.match(html, /Join SIBS Youth/);
+  assert.match(html, /Leadership &amp; Mentorship/);
+  assert.match(html, /Football &amp; Sports Development/);
   assert.match(html, /Cape Coast/);
-  assert.match(html, /Learn\. Lead\. Serve\. Build\./);
+  assert.match(html, /Learn\. Build\. Lead\./);
   assert.match(html, /og:image/);
   assert.doesNotMatch(html, /react-loading-skeleton|SkeletonPreview/);
 });
